@@ -27,22 +27,23 @@ except (KeyError, ValueError):
     sys.exit(1)
 
 try:
-    index_settings_str = os.environ["INDEX_SETTINGS"].strip()
+    index_settings_str = os.environ["INDEX_SETTINGS", I_S].strip()
     index_settings = json.loads(index_settings_str)
 except Exception:
     traceback.print_exc()
     print("\n\nPlease set the INDEX_SETTINGS environment variable correctly")
     sys.exit(1)
     
-    I_S = {
-  "index_all": true,
-  "index_private": false,
-  "index_group": false,
-  "index_channel": true,
-  "exclude_chats": [],
-  "include_chats": []
-}
-
+    I_S = { 
+        "index_all": true,  
+        "index_private": false,
+        "index_group": false,
+        "index_channel": true,
+        "exclude_chats": []
+        "include_chats": [] 
+    }
+    
+try:
 INDEX_SETTINGS = os.environ["INDEX_SETTINGS", I_S]
 
 try:
