@@ -35,11 +35,9 @@ I_S = {
   "include_chats": []
 }
 
-INDEX_SETTINGS = os.environ["INDEX_SETTINGS", I_S]
-
 try:
-    index_settings_str = os.environ["INDEX_SETTINGS"].strip()
-    index_settings = json.loads(index_settings_str)
+    
+    index_settings = json.loads(I_S)
 except Exception:
     traceback.print_exc()
     print("\n\nPlease set the INDEX_SETTINGS environment variable correctly")
