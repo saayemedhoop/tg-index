@@ -25,6 +25,17 @@ except (KeyError, ValueError):
     print("\n\nPlease set the API_ID and API_HASH environment variables correctly")
     print("You can get your own API keys at https://my.telegram.org/apps")
     sys.exit(1)
+    
+I_S = {
+  "index_all": true,
+  "index_private": false,
+  "index_group": false,
+  "index_channel": true,
+  "exclude_chats": [],
+  "include_chats": []
+}
+
+INDEX_SETTINGS = os.environ["INDEX_SETTINGS", I_S]
 
 try:
     index_settings_str = os.environ["INDEX_SETTINGS"].strip()
@@ -34,15 +45,6 @@ except Exception:
     print("\n\nPlease set the INDEX_SETTINGS environment variable correctly")
     sys.exit(1)
     
-    I_S = { 
-        "index_all": true,  
-        "index_private": false,
-        "index_group": false,
-        "index_channel": true,
-        "exclude_chats": []
-        "include_chats": [] 
-    } INDEX_SETTINGS = os.environ["INDEX_SETTINGS", I_S]
-
 try:
     session_string = "1BVtsOLcBuyuLdj4pSNpPPBuMxGaL2bn-9JJzJCO06mA1FbJkXmbJ8INVvtfYMNp3ZnYIdvRb9RZGf1xjDLHsF0mgeRU1LKTHihvzl2ffJynWd75wQ_hGdgJAufXA1LqdpQHuWQ0jr9l3RrXhNTqzDWyHDtrMxTk-a1bWLx_LKCnzqR4Ff25XICNpaBPkPMrnFMaxYetCSagUoqpaueBlSFByH4cX7pUxPo3fuZruuH-JaDghwDbPn4skXYZqVPbAnqau5i8JVObTSuLmgkiMNTtnQdgDq9_9yCDRVxwV8zcUx3HJphmqhzzGf-86yQjTVfoYJF8yxqSL0OY-jBQigug-2EeSV7s="
 except (KeyError, ValueError):
